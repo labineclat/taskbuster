@@ -87,7 +87,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Calcutta'
 
 USE_I18N = True
 
@@ -95,6 +95,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+import datetime
+from django.utils.timezone import utc
+now_naive = datetime.datetime.now()
+now_aware = datetime.datetime.utcnow().replace(tzinfo=utc)
+from django.utils.timezone import now
+now_aware = now()
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
